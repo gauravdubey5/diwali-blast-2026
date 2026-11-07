@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description"
+    content="Diwali Blast 2026 - Ultimate Interactive Fireworks & Festive Celebration Experience. Launch rockets, trigger bombs, light anar fountains, draw sparkler trails, and share personalized greetings!">
+  <meta name="theme-color" content="#06030c">
+  <meta property="og:title" content="Diwali Blast 2026 - Interactive Fireworks Celebration">
+  <meta property="og:description"
+    content="Experience an interactive Diwali fireworks simulator with rockets, bombs, anar fountains, sparklers, and grand finale!">
+  <meta property="og:type" content="website">
+
+  <title>DIWALI BLAST 2026 | Ultimate Interactive Fireworks & Celebration</title>
+
+  <!-- Google Fonts: Cinzel Decorative, Playfair Display & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Cosmic Atmosphere & Starfield -->
+  <div class="cosmic-atmosphere" aria-hidden="true">
+    <div class="starfield-overlay"></div>
+  </div>
+
+  <!-- HTML5 Canvas for High-Performance Fireworks Engine -->
+  <canvas id="fireworks-canvas" aria-label="Interactive Fireworks Display"></canvas>
+
+  <!-- Hanging Festive Lanterns (Akash Kandil) -->
+  <div class="festive-lantern lantern-left" aria-hidden="true">
+    <svg width="60" height="150" viewBox="0 0 60 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hanging Cord -->
+      <line x1="30" y1="0" x2="30" y2="30" stroke="#ffd700" stroke-width="1.5" />
+      <!-- Lantern Cap -->
+      <polygon points="20,30 40,30 46,38 14,38" fill="#ff9e00" stroke="#ffd700" stroke-width="1" />
+      <!-- Diamond Lantern Body -->
+      <polygon points="30,38 52,62 30,86 8,62" fill="url(#kandilGrad1)" stroke="#ffd700" stroke-width="1.8" />
+      <!-- Inner Glow -->
+      <circle cx="30" cy="62" r="12" fill="#fff3b0" opacity="0.85" filter="drop-shadow(0 0 10px #ffb703)" />
+      <!-- Trailing Tassels -->
+      <path d="M18,86 Q16,115 12,145" stroke="#ff0055" stroke-width="2" stroke-linecap="round" />
+      <path d="M24,86 Q23,118 22,148" stroke="#ffd700" stroke-width="2" stroke-linecap="round" />
+      <path d="M30,86 L30,150" stroke="#ffb703" stroke-width="2.2" stroke-linecap="round" />
+      <path d="M36,86 Q37,118 38,148" stroke="#ffd700" stroke-width="2" stroke-linecap="round" />
+      <path d="M42,86 Q44,115 48,145" stroke="#ff0055" stroke-width="2" stroke-linecap="round" />
+      <defs>
+        <radialGradient id="kandilGrad1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ff007f" />
+          <stop offset="70%" stop-color="#9d0208" />
+          <stop offset="100%" stop-color="#370617" />
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="festive-lantern lantern-right" aria-hidden="true">
+    <svg width="60" height="150" viewBox="0 0 60 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="0" x2="30" y2="30" stroke="#ffd700" stroke-width="1.5" />
+      <polygon points="20,30 40,30 46,38 14,38" fill="#ff9e00" stroke="#ffd700" stroke-width="1" />
+      <polygon points="30,38 52,62 30,86 8,62" fill="url(#kandilGrad2)" stroke="#ffd700" stroke-width="1.8" />
+      <circle cx="30" cy="62" r="12" fill="#fff3b0" opacity="0.85" filter="drop-shadow(0 0 10px #ffb703)" />
+      <path d="M18,86 Q16,115 12,145" stroke="#00f5d4" stroke-width="2" stroke-linecap="round" />
+      <path d="M24,86 Q23,118 22,148" stroke="#ffd700" stroke-width="2" stroke-linecap="round" />
+      <path d="M30,86 L30,150" stroke="#ffb703" stroke-width="2.2" stroke-linecap="round" />
+      <path d="M36,86 Q37,118 38,148" stroke="#ffd700" stroke-width="2" stroke-linecap="round" />
+      <path d="M42,86 Q44,115 48,145" stroke="#00f5d4" stroke-width="2" stroke-linecap="round" />
+      <defs>
+        <radialGradient id="kandilGrad2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#7209b7" />
+          <stop offset="70%" stop-color="#3a0ca3" />
+          <stop offset="100%" stop-color="#140152" />
+        </radialGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <!-- Traditional Glowing Interactive Diyas (Left & Right) -->
+  <aside class="diya-container diya-left interactive-diya" title="Click Diya to Relight & Ring Sacred Chimes!"
+    aria-label="Traditional Left Diya Lamp">
+    <svg class="diya-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Ambient Flame Halo Glow -->
+      <circle class="diya-flame-glow" cx="60" cy="42" r="32" fill="url(#diyaHaloGrad)" opacity="0.85" />
+      <!-- Terracotta & Brass Diya Bowl -->
+      <path d="M15,68 Q60,110 105,68 Q100,56 60,60 Q20,56 15,68 Z" fill="url(#diyaBowlGrad)" stroke="#ffd700"
+        stroke-width="2" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.7))" />
+      <!-- Decorative Ornate Carvings on Rim -->
+      <path d="M28,66 Q60,88 92,66" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="3,3" />
+      <ellipse cx="60" cy="61" rx="36" ry="6" fill="#802b00" />
+      <!-- Golden Oil Pool -->
+      <ellipse cx="60" cy="62" rx="30" ry="4" fill="#ffb703" opacity="0.8" />
+      <!-- Cotton Wick -->
+      <path d="M60,62 Q61,50 60,44" stroke="#4a2810" stroke-width="3" stroke-linecap="round" />
+      <!-- Realistic Multi-Layer Flame -->
+      <g class="diya-flame-core">
+        <!-- Outer Flame Feathering -->
+        <path d="M60,15 C69,28 72,42 60,49 C48,42 51,28 60,15 Z" fill="url(#diyaFlameOuter)" opacity="0.95" />
+        <!-- Mid Golden Flame -->
+        <path d="M60,22 C66,31 68,41 60,47 C52,41 54,31 60,22 Z" fill="#ffd700" />
+        <!-- Inner Intense Core Flame -->
+        <path d="M60,30 C63,35 64,43 60,46 C56,43 57,35 60,30 Z" fill="#ffffff" />
+        <!-- Blue Base Flame -->
+        <ellipse cx="60" cy="46" rx="4" ry="2.5" fill="#00bbf9" opacity="0.9" />
+      </g>
+      <defs>
+        <radialGradient id="diyaHaloGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffd700" stop-opacity="0.8" />
+          <stop offset="50%" stop-color="#ff8800" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#ff4500" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="diyaBowlGrad" x1="15" y1="56" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#d46a00" />
+          <stop offset="40%" stop-color="#ff9e00" />
+          <stop offset="70%" stop-color="#b84700" />
+          <stop offset="100%" stop-color="#5a1e00" />
+        </linearGradient>
+        <linearGradient id="diyaFlameOuter" x1="60" y1="15" x2="60" y2="49" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="25%" stop-color="#ffea75" />
+          <stop offset="65%" stop-color="#ff7b00" />
+          <stop offset="100%" stop-color="#d00000" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </aside>
+
+  <aside class="diya-container diya-right interactive-diya" title="Click Diya to Relight & Ring Sacred Chimes!"
+    aria-label="Traditional Right Diya Lamp">
+    <svg class="diya-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle class="diya-flame-glow" cx="60" cy="42" r="32" fill="url(#diyaHaloGrad2)" opacity="0.85" />
+      <path d="M15,68 Q60,110 105,68 Q100,56 60,60 Q20,56 15,68 Z" fill="url(#diyaBowlGrad2)" stroke="#ffd700"
+        stroke-width="2" filter="drop-shadow(0 8px 12px rgba(0,0,0,0.7))" />
+      <path d="M28,66 Q60,88 92,66" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="3,3" />
+      <ellipse cx="60" cy="61" rx="36" ry="6" fill="#802b00" />
+      <ellipse cx="60" cy="62" rx="30" ry="4" fill="#ffb703" opacity="0.8" />
+      <path d="M60,62 Q59,50 60,44" stroke="#4a2810" stroke-width="3" stroke-linecap="round" />
+      <g class="diya-flame-core">
+        <path d="M60,15 C69,28 72,42 60,49 C48,42 51,28 60,15 Z" fill="url(#diyaFlameOuter2)" opacity="0.95" />
+        <path d="M60,22 C66,31 68,41 60,47 C52,41 54,31 60,22 Z" fill="#ffd700" />
+        <path d="M60,30 C63,35 64,43 60,46 C56,43 57,35 60,30 Z" fill="#ffffff" />
+        <ellipse cx="60" cy="46" rx="4" ry="2.5" fill="#00bbf9" opacity="0.9" />
+      </g>
+      <defs>
+        <radialGradient id="diyaHaloGrad2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffd700" stop-opacity="0.8" />
+          <stop offset="50%" stop-color="#ff8800" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#ff4500" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="diyaBowlGrad2" x1="15" y1="56" x2="105" y2="105" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#d46a00" />
+          <stop offset="40%" stop-color="#ff9e00" />
+          <stop offset="70%" stop-color="#b84700" />
+          <stop offset="100%" stop-color="#5a1e00" />
+        </linearGradient>
+        <linearGradient id="diyaFlameOuter2" x1="60" y1="15" x2="60" y2="49" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="25%" stop-color="#ffea75" />
+          <stop offset="65%" stop-color="#ff7b00" />
+          <stop offset="100%" stop-color="#d00000" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </aside>
+
+  <!-- ==========================================================================
+       HERO / WELCOME LANDING SECTION
+       ========================================================================== -->
+  <main id="hero-section">
+    <div class="hero-content">
+      <!-- Festive Pill Badge -->
+      <div class="festive-badge">
+        <span>✨</span>
+        <span>Festival of Lights 2026</span>
+        <span>✨</span>
+      </div>
+
+      <!-- Main Glowing Grand Heading -->
+      <h1 class="hero-title">HAPPY DIWALI 2026</h1>
+
+      <!-- Festive Subtitle -->
+      <p class="hero-subtitle">"Let the sky shine brighter than ever!"</p>
+
+      <!-- Dynamic Personalized Hero Greeting Banner -->
+      <div id="personalized-hero-greeting" class="personalized-hero-greeting" aria-live="polite"></div>
+
+      <!-- Glassmorphism Action Box -->
+      <div class="hero-action-box">
+        <div class="input-group">
+          <label for="visitor-name-input" class="input-label">Enter your name for personalized wishes:</label>
+          <input type="text" id="visitor-name-input" class="festive-input"
+            placeholder="e.g. Your Name, Family & Friends" maxlength="40" autocomplete="name">
+        </div>
+
+        <button id="btn-start-celebration" class="btn-start-celebration" type="button">
+          <span>✨</span>
+          <span>Start Celebration</span>
+          <span>🚀</span>
+        </button>
+
+        <p class="hero-hint">
+          <span>💡</span>
+          <span>Click anywhere on sky to launch fireworks • Drag for sparklers</span>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       FLOATING INTERACTIVE CONTROL PANEL (DOCK)
+       ========================================================================== -->
+  <nav id="control-panel" class="hidden" aria-label="Fireworks Controls">
+    <!-- Panel Header -->
+    <div class="panel-header">
+      <div class="panel-title-area">
+        <span class="panel-title">🎆 Diwali Blast 2026</span>
+        <span class="panel-mode-tag">Interactive Mode</span>
+      </div>
+      <button id="btn-toggle-panel" class="panel-toggle-btn" type="button" title="Minimize / Expand Dock"
+        aria-expanded="true">
+        ▼
+      </button>
+    </div>
+
+    <!-- Primary 7 Action Buttons Grid -->
+    <div class="primary-controls-grid">
+      <!-- 1. Launch Rocket -->
+      <button id="btn-launch-rocket" class="control-btn" type="button"
+        title="Launch a rocket high into the sky [Key: 1 or Space]">
+        <span class="btn-icon">🚀</span>
+        <span class="btn-label">Rocket</span>
+        <span class="shortcut-badge">1</span>
+      </button>
+
+      <!-- 2. Bomb Blast -->
+      <button id="btn-bomb-blast" class="control-btn" type="button"
+        title="Place a Diwali bomb with burning fuse & shockwave [Key: 2]">
+        <span class="btn-icon">💥</span>
+        <span class="btn-label">Bomb Blast</span>
+        <span class="shortcut-badge">2</span>
+      </button>
+
+      <!-- 3. Mega Fireworks -->
+      <button id="btn-mega-fireworks" class="control-btn" type="button"
+        title="Mega Chrysanthemum Cluster explosion [Key: 3]">
+        <span class="btn-icon">🎆</span>
+        <span class="btn-label">Mega Burst</span>
+        <span class="shortcut-badge">3</span>
+      </button>
+
+      <!-- 4. Anar Fountain -->
+      <button id="btn-anar-fountain" class="control-btn" type="button"
+        title="Ignite a golden cascading Flowerpot fountain [Key: 4]">
+        <span class="btn-icon">🔥</span>
+        <span class="btn-label">Anar Fountain</span>
+        <span class="shortcut-badge">4</span>
+      </button>
+
+      <!-- 5. Sparkler Mode -->
+      <button id="btn-sparkler-mode" class="control-btn" type="button" title="Toggle Sparkler Wand mode [Key: 5]">
+        <span class="btn-icon">✨</span>
+        <span class="btn-label">Sparkler</span>
+        <span class="shortcut-badge">5</span>
+      </button>
+
+      <!-- 6. Multi-Rocket Show -->
+      <button id="btn-multi-rocket" class="control-btn" type="button"
+        title="Launch an intense 14-rocket battery salvo [Key: 6]">
+        <span class="btn-icon">🌈</span>
+        <span class="btn-label">Multi-Rocket</span>
+        <span class="shortcut-badge">6</span>
+      </button>
+
+      <!-- 7. Grand Finale -->
+      <button id="btn-grand-finale" class="control-btn btn-grand-finale" type="button"
+        title="Trigger the Grand Cinematic Finale Spectacle [Key: 7]">
+        <span class="btn-icon">🎇</span>
+        <span class="btn-label">Grand Finale</span>
+        <span class="shortcut-badge">7</span>
+      </button>
+    </div>
+
+    <!-- Secondary Utility Controls Bar -->
+    <div class="secondary-controls-bar">
+      <!-- Sound Toggle -->
+      <button id="btn-toggle-sound" class="util-btn" type="button" title="Toggle Sound ON/OFF [Key: M]">
+        <span class="btn-icon">🔇</span>
+        <span class="btn-label">Sound OFF</span>
+      </button>
+
+      <!-- Auto Fireworks Toggle -->
+      <button id="btn-toggle-auto" class="util-btn active" type="button"
+        title="Toggle Continuous Auto Sky Fireworks [Key: A]">
+        <span class="btn-icon">🔄</span>
+        <span class="btn-label">Auto ON</span>
+      </button>
+
+      <!-- Clear Sky -->
+      <button id="btn-clear-screen" class="util-btn" type="button" title="Clear All Active Sparks [Key: C]">
+        <span class="btn-icon">🧹</span>
+        <span class="btn-label">Clear Sky</span>
+      </button>
+
+      <!-- Replay Celebration -->
+      <button id="btn-replay-hero" class="util-btn" type="button" title="Replay Hero Greeting [Key: R]">
+        <span class="btn-icon">🔁</span>
+        <span class="btn-label">Replay Intro</span>
+      </button>
+
+      <!-- Share Wishes -->
+      <button id="btn-open-wishes" class="util-btn btn-wishes-action" type="button"
+        title="Personalize Greeting & Share via WhatsApp [Key: W]">
+        <span class="btn-icon">💌</span>
+        <span class="btn-label">Share Wishes</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       GRAND FINALE CINEMATIC OVERLAY
+       ========================================================================== -->
+  <div id="grand-finale-overlay" role="dialog" aria-modal="true" aria-label="Grand Finale Celebration">
+    <div class="finale-card">
+      <svg class="finale-ornament" viewBox="0 0 100 100" fill="currentColor">
+        <polygon points="50,5 61,35 95,35 68,55 78,88 50,70 22,88 32,55 5,35 39,35" />
+      </svg>
+
+      <h2 class="finale-title">HAPPY DIWALI</h2>
+
+      <p class="finale-message">
+        "May your life shine with happiness, prosperity and endless success."
+      </p>
+
+      <p class="finale-recipient-note">
+        Dedicated with warm festive blessings to <span id="finale-user-name" class="golden-highlight">Everyone</span>!
+        🪔✨
+      </p>
+
+      <button id="btn-finale-close" class="btn-finale-close" type="button">
+        Continue Celebrating 🎉
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       PERSONALIZED WISHES & WHATSAPP SHARING MODAL
+       ========================================================================== -->
+  <div id="wishes-modal" role="dialog" aria-modal="true" aria-label="Personalized Wishes Card">
+    <div class="wishes-card">
+      <div class="modal-header">
+        <h3 class="modal-title">🪔 Personalized Diwali Greeting</h3>
+        <button id="btn-close-wishes" class="btn-modal-close" type="button"
+          aria-label="Close Wishes Modal">&times;</button>
+      </div>
+
+      <div class="wishes-form-grid">
+        <div class="input-group">
+          <label for="wishes-name-input" class="input-label">Your Name (Sender):</label>
+          <input type="text" id="wishes-name-input" class="festive-input" placeholder="e.g. Gaurav">
+        </div>
+        <div class="input-group">
+          <label for="wishes-recipient-input" class="input-label">Recipient's Name:</label>
+          <input type="text" id="wishes-recipient-input" class="festive-input"
+            placeholder="e.g. Rahul, Family & Friends">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">Live Greeting Preview:</label>
+        <div id="wishes-preview-text" class="wishes-preview-box"></div>
+      </div>
+
+      <div class="wishes-actions">
+        <button id="btn-copy-greeting" class="btn-action-primary btn-copy-greeting" type="button">
+          <span>📋</span>
+          <span>Copy Greeting</span>
+        </button>
+
+        <button id="btn-whatsapp-share" class="btn-action-primary btn-whatsapp-share" type="button">
+          <span>💬</span>
+          <span>Share via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- Core JavaScript Module -->
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
